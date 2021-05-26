@@ -1,0 +1,15 @@
+{
+    "name": "Bomb Party Helper",
+    "description": "Will help you solve bomb party word puzzles",
+    "version": "1.0",
+    "manifest_version": 2,
+    "permissions": [
+      "tabs",
+      "http://*/*",
+      "https://*/*"
+    ],
+    "browser_action": {
+      "default_title": "Bomb Party helper",
+      "default_popup": "popup.html"
+    }
+  }

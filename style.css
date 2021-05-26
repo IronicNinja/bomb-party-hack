@@ -1,0 +1,24 @@
+.body,
+html {
+  font-family: "Inter", sans-serif;
+  height: 200px;
+  width: 250px;
+}
+
+.inputList {
+}
+
+.button {
+  height: 50px;
+  width: calc(50% - 10px);
+  margin: 0 auto;
+  margin-right: 5px;
+  display: inline-block;
+  background-color: green;
+  border: 0;
+  color: #fff;
+  font-weight: 700;
+  font-family: "Inter", sans-serif;
+  border-radius: 3px;
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.4);
+}
