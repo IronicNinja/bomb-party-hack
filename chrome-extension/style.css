@@ -1,0 +1,25 @@
+.body,
+html {
+  font-family: "Inter", sans-serif;
+  height: 250px;
+  width: 400px;
+}
+
+.title {
+  font-size: 40px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.timeList, .lengthList {
+  padding-bottom: 20px;
+}
+
+.button {
+  height: 50px;
+  width: 100%;
+  background-color: green;
+  border: 0;
+  color: #fff;
+  font-weight: 700;
+}
