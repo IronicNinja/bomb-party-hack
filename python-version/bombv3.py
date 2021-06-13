@@ -171,5 +171,5 @@ def create_bot(tag, nickname, difficulty=3):
 # custom creation
 #bombBot = bombParty("AAAA", "bot", 4, 60)
 
-bot = create_bot("MEYR", "trishisbad", difficulty=3)
+bot = create_bot("AAAA", "bot", difficulty=3)
 bot.play()

@@ -70,4 +70,4 @@ class bombParty():
 bombBot = bombParty()
 
 #easy - <6, medium - <8, hard - <10, impossible - <20
-bombBot.solve("BCKV", "hmm2", 20, n-100000)
+bombBot.solve("AAAA", "bot", 20, n-100000)

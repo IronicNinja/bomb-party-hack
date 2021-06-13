@@ -123,4 +123,4 @@ class bombParty():
 bombBot = bombParty()
 
 #easy - <6, medium - <8, hard - <10, impossible - <20
-bombBot.solve("HTXX", "trishisbad", 10, True)
+bombBot.solve("AAAA", "bot", 10, True)
