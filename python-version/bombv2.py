@@ -79,9 +79,10 @@ class bombParty():
                                 sleep(rand_sleep)
 
                                 if realistic:
-                                    word_sleep = random.uniform(0.1, 0.25)
+                                    word_sleep = random.uniform(0.5, 1)
                                     if syllable != self.driver.find_element_by_xpath("/html/body/div[2]/div[2]/div[2]/div[2]/div").text.upper():
                                         go = False
+                                        textInput.send_keys("")
                                         break
 
                                     for c in word:
@@ -122,4 +123,4 @@ class bombParty():
 bombBot = bombParty()
 
 #easy - <6, medium - <8, hard - <10, impossible - <20
-bombBot.solve("AAAA", "bot", 20, True)
+bombBot.solve("HTXX", "trishisbad", 10, True)
