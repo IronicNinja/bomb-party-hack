@@ -66,7 +66,11 @@ class bombParty():
                 
                 startIndex = startWordDict[optimal_letters[currIndex]]
                 print(optimal_letters[currIndex])
+                go = True
                 for i in range(startIndex, n):
+                    if not go:
+                        break
+                    
                     word = my_list[i].replace('\n', '')
                     try:
                         if syllable in word:
@@ -75,7 +79,11 @@ class bombParty():
                                 sleep(rand_sleep)
 
                                 if realistic:
-                                    word_sleep = random.uniform(0.25, 0.5)
+                                    word_sleep = random.uniform(0.1, 0.25)
+                                    if syllable != self.driver.find_element_by_xpath("/html/body/div[2]/div[2]/div[2]/div[2]/div").text.upper():
+                                        go = False
+                                        break
+
                                     for c in word:
                                         sleep(word_sleep/len(word))
                                         textInput.send_keys(c)
@@ -114,4 +122,4 @@ class bombParty():
 bombBot = bombParty()
 
 #easy - <6, medium - <8, hard - <10, impossible - <20
-bombBot.solve("CQUZ", "trishisbad", 20, False)
+bombBot.solve("AAAA", "bot", 20, True)
