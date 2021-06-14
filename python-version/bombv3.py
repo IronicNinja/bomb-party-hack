@@ -3,7 +3,7 @@ from time import sleep
 import random
 
 class bombParty():
-    def __init__(self, tag, nickname, maxWordLength, typingSpeed):
+    def __init__(self, tag, nickname, maxWordLength, typingSpeed, reactionSpeed=0.5):
         # typingSpeed - wpm
 
         print("Initializing...")
@@ -11,6 +11,7 @@ class bombParty():
         self.nickname = nickname
         self.maxWordLength = maxWordLength
         self.typingSpeed = 60/typingSpeed
+        self.reactionSpeed = reactionSpeed
 
         self.myList = []
         self.startWordDict = {}
@@ -82,6 +83,8 @@ class bombParty():
                 optimalLetter = self.optimalLetters[self.currIndex]
                 startIndex = self.startWordDict[optimalLetter]
                 endIndex = self.endWordDict[optimalLetter]
+                
+                sleep(random.uniform(pow(self.typingSpeed, 2), self.typingSpeed)) # Reaction speed
 
                 print(f"Syllable: {syllable}, starting search from: {self.optimalLetters[self.currIndex]} to %c" % ("Z" if self.currIndex > self.totalWords//2 else "A"))
 
@@ -148,21 +151,23 @@ class bombParty():
 
                                 break
             except Exception as e:
-                sleep(random.uniform(0.5, 1))
+                sleep(random.uniform(self.reactionSpeed*0.67, self.reactionSpeed*1.5))
                 pass
 
 #1 - baby (you have a chance), #2 - easy (pros have a chance), #3 - medium, #4 - hard (no one will beat it), #5 - impossible (basically flexing)
 def create_bot(tag, nickname, difficulty=3):
     if difficulty == 1:
-        bot = bombParty(tag, nickname, 4, 60)
+        bot = bombParty(tag, nickname, 4, 60, 1)
     elif difficulty == 2:
-        bot = bombParty(tag, nickname, 6, 80)
+        bot = bombParty(tag, nickname, 6, 80, 0.8)
     elif difficulty == 3:
-        bot = bombParty(tag, nickname, 8, 100)
+        bot = bombParty(tag, nickname, 8, 100, 0.6)
     elif difficulty == 4:
-        bot = bombParty(tag, nickname, 12, 140)
+        bot = bombParty(tag, nickname, 12, 140, 0.4)
     elif difficulty == 5:
-        bot = bombParty(tag, nickname, 100, 200)
+        bot = bombParty(tag, nickname, 100, 200, 0.2)
+    elif difficulty == 69:
+        bot = bombParty(tag, nickname, 100, 10000, 0.1)
     else:
         raise Exception("Invalid difficulty, bot not created.")
     
@@ -171,5 +176,5 @@ def create_bot(tag, nickname, difficulty=3):
 # custom creation
 #bombBot = bombParty("AAAA", "bot", 4, 60)
 
-bot = create_bot("AAAA", "bot", difficulty=3)
+bot = create_bot("WBTA", "abc", difficulty=3)
 bot.play()
