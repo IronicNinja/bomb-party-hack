@@ -1,11 +1,12 @@
 from selenium import webdriver
 from time import sleep
 import random
+import chromedriver_autoinstaller
 
 class bombParty():
     def __init__(self, tag, nickname, maxWordLength, typingSpeed, reactionSpeed=0.5):
         # typingSpeed - wpm
-
+        chromedriver_autoinstaller.install()
         print("Initializing...")
         self.tag = tag
         self.nickname = nickname
@@ -44,7 +45,7 @@ class bombParty():
 
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument('--no-sandbox')
-        self.driver = webdriver.Chrome(r'C:\Users\Evan Zhang\Desktop\chromedriver', options=chrome_options)
+        self.driver = webdriver.Chrome(options=chrome_options)
 
     def play(self):
         fname = f"https://jklm.fun/{self.tag}"
@@ -165,7 +166,7 @@ def create_bot(tag, nickname, difficulty=3):
     elif difficulty == 4:
         bot = bombParty(tag, nickname, 12, 140, 0.4)
     elif difficulty == 5:
-        bot = bombParty(tag, nickname, 100, 200, 0.2)
+        bot = bombParty(tag, nickname, 100, 200, 0.2)   
     elif difficulty == 69:
         bot = bombParty(tag, nickname, 100, 10000, 0.1)
     else:
@@ -176,5 +177,5 @@ def create_bot(tag, nickname, difficulty=3):
 # custom creation
 #bombBot = bombParty("AAAA", "bot", 4, 60)
 
-bot = create_bot("WBTA", "abc", difficulty=3)
+bot = create_bot("KXDP", "abc", difficulty=3)
 bot.play()
